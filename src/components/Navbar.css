@@ -1,0 +1,65 @@
+.custom-link {
+    font-family: roboto;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    /* Default color */
+    text-decoration: none;
+    /* No underline */
+    transition: color 0.3s ease, transform 0.2s ease;
+    /* Smooth color transition */
+}
+
+.custom-link:hover,
+.custom-link:focus,
+.custom-link:active {
+    color: #cc9447;
+    /* Change to your desired color */
+    transform: scale(1.1);
+}
+
+.custom-button {
+    background: transparent;
+    /* Transparent background */
+    color: black;
+    /* Default text color */
+    border: none;
+    /* No border */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    font-size: 20px;
+    /* Font size */
+    margin-right: 20px;
+    /* Space to the right */
+    transition: color 0.3s ease, transform 0.2s ease;
+    /* Smooth transitions */
+}
+
+.custom-button:hover {
+    color: red;
+    /* Change text color on hover */
+    transform: scale(1.1);
+    /* Slight zoom effect */
+}
+
+/* logo after text */
+.animated-text {
+    font-size: 1.5rem;
+    color: #cc9447;
+    opacity: 0;
+    /* Start hidden */
+    animation: fadeSlideIn 2s ease-in-out 2s forwards;
+    /* Delayed animation */
+}
+
+@keyframes fadeSlideIn {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

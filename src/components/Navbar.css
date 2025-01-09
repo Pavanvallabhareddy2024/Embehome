@@ -1,55 +1,40 @@
+/* Common styles for all views (Laptop and Mobile) */
 .custom-link {
     font-family: roboto;
     font-size: 20px;
     font-weight: bold;
     color: black;
-    /* Default color */
     text-decoration: none;
-    /* No underline */
     transition: color 0.3s ease, transform 0.2s ease;
-    /* Smooth color transition */
 }
 
 .custom-link:hover,
 .custom-link:focus,
 .custom-link:active {
     color: #cc9447;
-    /* Change to your desired color */
     transform: scale(1.1);
 }
 
 .custom-button {
     background: transparent;
-    /* Transparent background */
     color: black;
-    /* Default text color */
     border: none;
-    /* No border */
     cursor: pointer;
-    /* Pointer cursor on hover */
     font-size: 20px;
-    /* Font size */
     margin-right: 20px;
-    /* Space to the right */
     transition: color 0.3s ease, transform 0.2s ease;
-    /* Smooth transitions */
 }
 
 .custom-button:hover {
     color: red;
-    /* Change text color on hover */
     transform: scale(1.1);
-    /* Slight zoom effect */
 }
 
-/* logo after text */
 .animated-text {
     font-size: 1.5rem;
     color: #cc9447;
     opacity: 0;
-    /* Start hidden */
     animation: fadeSlideIn 2s ease-in-out 2s forwards;
-    /* Delayed animation */
 }
 
 @keyframes fadeSlideIn {
@@ -57,9 +42,65 @@
         transform: translateY(20px);
         opacity: 0;
     }
-
     100% {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+/* Laptop view styles (default) */
+nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    color: #fff;
+    padding: 0.5rem;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Mobile view styles */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .mobile-dropdown {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        background: white;
+        width: 100%;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        z-index: 1001;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+    }
+
+    .mobile-dropdown.active {
+        display: flex;
+    }
+
+    .edit-icon {
+        font-size: 1.5rem;
+        color: black;
+        cursor: pointer;
+        margin-left: auto;
+    }
+
+    .custom-link {
+        font-size: 1.2rem;
+    }
+
+    .custom-button {
+        font-size: 1.2rem;
     }
 }

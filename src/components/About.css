@@ -1,0 +1,198 @@
+/* Default Styles - Mobile First */
+.inventory-box {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    height: 120px;
+    width: 120px;
+    background-color: white;
+    padding: 10px;
+    gap: 5px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.inner-container {
+    height: 60%;
+    width: 100%;
+    gap: 5px;
+}
+
+.label-box,
+.data-box,
+.small-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.label-box {
+    height: 50px;
+    width: 50px;
+    background-color: #108b8b;
+    color: yellow;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.data-box {
+    height: 35px;
+    width: 35px;
+    color: green;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.small-box {
+    height: 30px;
+    width: 30px;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* Mobile Portrait: max-width: 480px */
+@media screen and (max-width: 480px) {
+    .inventory-box {
+        height: 100px;
+        width: 100px;
+    }
+
+    .label-box {
+        height: 50px;
+        width: 50px;
+    }
+
+    .data-box {
+        height: 30px;
+        width: 30px;
+    }
+
+    .small-box {
+        height: 30px;
+        width: 30px;
+    }
+
+    h1 {
+        font-size: 12px;
+    }
+}
+
+/* Mobile Landscape: min-width: 481px and max-width: 767px */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    .inventory-box {
+        height: 120px;
+        width: 120px;
+    }
+
+    .label-box {
+        height: 50px;
+        width: 50px;
+    }
+
+    .data-box {
+        height: 30px;
+        width: 30px;
+    }
+
+    .small-box {
+        height: 30px;
+        width: 30px;
+    }
+
+    h1 {
+        font-size: 14px;
+    }
+}
+
+/* Tablet Portrait: min-width: 768px and max-width: 991px */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .inventory-box {
+        height: 125px;
+        width: 125px;
+    }
+
+    .label-box {
+        height: 55px;
+        width: 55px;
+    }
+
+    .data-box {
+        height: 30px;
+        width: 30px;
+    }
+
+    .small-box {
+        height: 30px;
+        width: 30px;
+    }
+
+    h1 {
+        font-size: 16px;
+    }
+}
+
+/* Tablet Landscape / Small Desktops: min-width: 992px and max-width: 1199px */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .inventory-box {
+        height: 130px;
+        width: 130px;
+    }
+
+    .label-box {
+        height: 60px;
+        width: 60px;
+    }
+
+    .data-box {
+        height: 35px;
+        width: 35px;
+    }
+
+    .small-box {
+        height: 40px;
+        width: 40px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+}
+
+/* Large Desktops: min-width: 1200px */
+@media screen and (min-width: 1200px) {
+    .inventory-box {
+            height: 140px;
+            width: 140px;
+    }
+
+    .label-box {
+        height: 70px;
+        width: 70px;
+    }
+
+    .data-box {
+        height: 40px;
+        width: 40px;
+    }
+
+    .small-box {
+        height: 35px;
+        width: 35px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+}
+
+
+.table-responsive td {
+    white-space: nowrap;
+}
+
+@media (max-width: 576px) {
+    .table-responsive td {
+        white-space: normal;
+        /* Allow wrapping on smaller screens */
+    }
+}

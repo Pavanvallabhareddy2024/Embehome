@@ -1,6 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import  { useState } from "react";
+import "./About.css";
 
 function About() {
   const [button1, setButton1] = useState(false);
@@ -8,7 +9,7 @@ function About() {
   const [button3, setButton3] = useState(false);
   const [button4, setButton4] = useState(false);
 
-
+  /*Button1 Starts*/
   const [button1Data, setbutton1Data] = useState({
     deviceBarCodeNumber: "",
     modularType: "",
@@ -20,579 +21,286 @@ function About() {
     glassType: ""
   });
 
-  const handleInputChange = (e) => {
+  const Button1handleInputChange = (e) => {
     const { name, value } = e.target;
     setbutton1Data((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = () => {
-    console.log("Form Data:", button1Data);
+  const Button1handleSubmit = () => {
+    console.log("Form Data for Button 1:", button1Data);
     setButton1(false); // Close popup after submission
+    setbutton1Data({});
   };
 
-  const handleBack = () => {
+  const Button1handleBack = () => {
     setButton1(false); // Close popup on back
+    setbutton1Data({});
+  };
+/*Button1 ends*/
+
+  /*Button2 Starts*/
+  const [button2Data, setbutton2Data] = useState({
+    deviceBarCodeNumber: "",
+    batchNo: "",
+    xbeeType: "",
+    hardwareversion: "",
+    firmwareVersion: ""
+  });
+
+  const Button2handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setbutton2Data((prevData) => ({ ...prevData, [name]: value }));
   };
 
+  const Button2handleSubmit = () => {
+    console.log("Form Data for Button 2:", button2Data);
+    setButton2(false); // Close popup after submission
+    setbutton2Data({});
+  };
+
+  const Button2handleBack = () => {
+    setButton2(false); // Close popup on back
+    setbutton2Data({});
+  };
+  /*Button2 ends*/
+
+  /*Button3 Starts*/
+  const [button3Data, setbutton3Data] = useState({
+    
+    batchNo: "",
+    remotecount: "",
+    remotetype: "",
+    modeltype: ""
+  });
+
+  const Button3handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setbutton3Data((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const Button3handleSubmit = () => {
+    console.log("Form Data for Button 3:", button3Data);
+    setButton3(false); // Close popup after submission
+    setbutton3Data({});
+  };
+
+  const Button3handleBack = () => {
+    setButton3(false); // Close popup on back
+    setbutton3Data({});
+  };
+  /*Button3 ends*/
+
+  var Total12M = 100;
+  var TT12M = 50;
+  var SS12M = 50;
+
+  var Total8M = 100;
+  var TT8M = 50;
+  var SS8M = 50;
+
+  var Total4M = 100;
+  var TT4M = 50;
+  var SS4M = 50;
+
+  var Total2M = 100;
+  var TT2M = 50;
+  var SS2M = 50;
+
+  var TotalCCM = 100;
+  var TTCCM = 60;
+  var SSCCM = 40;
+
+  var TotalBell = 100;
+  var TTBell = 60;
+  var SSBell = 40;
+
+  var TotalHub = 100;
+  var TTHub = 60;
+  var SSHub = 40;
+
+  var TotalRemotes = 100;
+  var TTRemotes = 60;
+  var SSRemotes = 40;
+
+  const data = [
+    {
+      deviceBarCode: 'R1234567890123456789',
+      modularType: '12 Module',
+      color: 'White',
+      boardType: 'TT',
+      batchNo: '1/2/3.......',
+      xbeeType: 'Nill',
+      switchCount: '8S+1F',
+      glassType: 'Full Plain',
+    },
+    {
+      deviceBarCode: 'R1234567890123456789',
+      modularType: '12 Module',
+      color: 'White',
+      boardType: 'SS',
+      batchNo: '1/2/3.......',
+      xbeeType: 'S3/S8/.....',
+      switchCount: '8S+1F',
+      glassType: 'Socket Enabled',
+    },
+    // Add more data items as needed
+  ];
+
+  // Search and filter state (optional, if needed for functionality)
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  // Filter data based on search term (optional)
+  const filteredData = data.filter(item =>
+    item.deviceBarCode.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.modularType.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.color.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.boardType.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  
+  
   return (
-    <div className='d-flex flex-column' style={{ height: "100vh", width: "100vw", padding: "10px", paddingTop: "100px", backgroundColor:"#108b8b"}}>
+    <div className='d-flex flex-column' style={{height: "auto", width: "100vw", padding: "10px", paddingTop: "100px", backgroundColor: "#f7f7f7" }}>
       <div className='d-flex flex-column'>
-        <h1 style={{ color:"white",fontSize:"30px",marginBottom:"30px",marginLeft:"10px",fontFamily:"roboto",fontWeight:"bold"}}>Current Inventory Boards</h1>
+        <h1 style={{ color: "black", fontSize: "30px", marginBottom: "30px", marginLeft: "10px", fontFamily: "roboto", fontWeight: "bold" }}>Current Inventory Boards</h1>
 
-        <div className='d-flex flex-row justify-content-center align-items-center gap-5' style={{ borderRadius: "8px", height: "180px", width: "100%", boxShadow: "0 8px 15px rgba(0, 0, 0, 0.2)", padding: "20px" }}>
+        <div className='d-flex flex-row flex-wrap justify-content-center align-items-center gap-5' style={{
+          
+          borderRadius: "8px", height: "auto", width: "100%", boxShadow: "0 8px 15px rgba(0, 0, 0, 0.2)", padding: "20px"
+        }}>
 
-          {/*12M 100 60 40*/} 
-          <div
-            className="d-flex flex-wrap align-items-center justify-content-center"
-            style={{
-              boxShadow: "0 8px 15px rgba(0, 0, 0, 0.2)",
-              height: "130px",
-              width: "130px",
-              backgroundColor: "white",
-              padding: "5px",
-              gap: "5px",
-              borderRadius: "8px",
-              overflow: "hidden"
-            }}
-          >
-            {/* Division 1 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "45px",
-                width: "50px",
-                backgroundColor: "#ff6f69",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "15px", fontWeight: "bold", color: "yellow", margin: 0 }}>12M</h1>
+          {/* 12M */}
+          <div className="d-flex flex-column align-items-center justify-content-center inventory-box">
+            {/* First Inner Container (Flex Column) */}
+            <div className="d-flex flex-column justify-content-center align-items-center inner-container">
+              <div className="label-box ak"><h1>12M</h1></div>
+              <div className="data-box"><h1>{Total12M}</h1></div>
             </div>
 
-            {/* Division 2 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "green", margin: 0 }}>100</h1>
-            </div>
-
-            {/* Division 3 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "black", margin: 0 }}>60</h1>
-            </div>
-
-            {/* Division 4 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "black", margin: 0 }}>40</h1>
+            {/* Second Inner Container (Flex Row) */}
+            <div className="d-flex flex-row justify-content-center align-items-center row-container">
+              <div className="small-box"><h1>{TT12M}</h1></div>
+              <div className="small-box"><h1>{SS12M}</h1></div>
             </div>
           </div>
 
-          {/*8M 100 60 40*/}
-          <div
-            className="d-flex flex-wrap align-items-center justify-content-center"
-            style={{
-              boxShadow: "0 8px 15px rgba(0, 0, 0, 0.2)",
-              height: "130px",
-              width: "130px",
-              backgroundColor: "white",
-              padding: "5px",
-              gap: "5px",
-              borderRadius: "8px",
-              overflow: "hidden"
-            }}
-          >
-            {/* Division 1 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "45px",
-                width: "50px",
-                backgroundColor: "#ff6f69",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "15px", fontWeight: "bold", color: "yellow", margin: 0 }}>8M</h1>
+          {/* 8M */}
+          <div className="d-flex flex-column align-items-center justify-content-center inventory-box">
+            <div className="d-flex flex-column justify-content-center align-items-center inner-container">
+              <div className="label-box"><h1>8M</h1></div>
+              <div className="data-box"><h1>{Total8M}</h1></div>
             </div>
-
-            {/* Division 2 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "green", margin: 0 }}>100</h1>
-            </div>
-
-            {/* Division 3 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "black", margin: 0 }}>60</h1>
-            </div>
-
-            {/* Division 4 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "black", margin: 0 }}>40</h1>
+            <div className="d-flex flex-row justify-content-center align-items-center row-container">
+              <div className="small-box"><h1>{TT8M}</h1></div>
+              <div className="small-box"><h1>{SS8M}</h1></div>
             </div>
           </div>
 
-          {/*4M 100 60 40*/}
-          <div
-            className="d-flex flex-wrap align-items-center justify-content-center"
-            style={{
-              boxShadow: "0 8px 15px rgba(0, 0, 0, 0.2)",
-              height: "130px",
-              width: "130px",
-              backgroundColor: "white",
-              padding: "5px",
-              gap: "5px",
-              borderRadius: "8px",
-              overflow: "hidden"
-            }}
-          >
-            {/* Division 1 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "45px",
-                width: "50px",
-                backgroundColor: "#ff6f69",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "15px", fontWeight: "bold", color: "yellow", margin: 0 }}>4M</h1>
+          {/* 4M */}
+          <div className="d-flex flex-column align-items-center justify-content-center inventory-box">
+            <div className="d-flex flex-column justify-content-center align-items-center inner-container">
+              <div className="label-box"><h1>4M</h1></div>
+              <div className="data-box"><h1>{Total4M}</h1></div>
             </div>
-
-            {/* Division 2 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "green", margin: 0 }}>100</h1>
-            </div>
-
-            {/* Division 3 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "black", margin: 0 }}>60</h1>
-            </div>
-
-            {/* Division 4 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "black", margin: 0 }}>40</h1>
+            <div className="d-flex flex-row justify-content-center align-items-center row-container">
+              <div className="small-box"><h1>{TT4M}</h1></div>
+              <div className="small-box"><h1>{SS4M}</h1></div>
             </div>
           </div>
 
-          {/*2M 100 60 40*/}
-          <div
-            className="d-flex flex-wrap align-items-center justify-content-center"
-            style={{
-              boxShadow: "0 8px 15px rgba(0, 0, 0, 0.2)",
-              height: "130px",
-              width: "130px",
-              backgroundColor: "white",
-              padding: "5px",
-              gap: "5px",
-              borderRadius: "8px",
-              overflow: "hidden"
-            }}
-          >
-            {/* Division 1 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "45px",
-                width: "50px",
-                backgroundColor: "#ff6f69",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "15px", fontWeight: "bold", color: "yellow", margin: 0 }}>2M</h1>
+          {/* 2M */}
+          <div className="d-flex flex-column align-items-center justify-content-center inventory-box">
+            <div className="d-flex flex-column justify-content-center align-items-center inner-container">
+              <div className="label-box"><h1>2M</h1></div>
+              <div className="data-box"><h1>{Total2M}</h1></div>
             </div>
-
-            {/* Division 2 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "green", margin: 0 }}>100</h1>
-            </div>
-
-            {/* Division 3 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "black", margin: 0 }}>60</h1>
-            </div>
-
-            {/* Division 4 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "black", margin: 0 }}>40</h1>
+            <div className="d-flex flex-row justify-content-center align-items-center row-container">
+              <div className="small-box"><h1>{TT2M}</h1></div>
+              <div className="small-box"><h1>{SS2M}</h1></div>
             </div>
           </div>
 
-          {/*CCM 100 60 40*/}
-          <div
-            className="d-flex flex-wrap align-items-center justify-content-center"
-            style={{
-              boxShadow: "0 8px 15px rgba(0, 0, 0, 0.2)",
-              height: "130px",
-              width: "130px",
-              backgroundColor: "white",
-              padding: "5px",
-              gap: "5px",
-              borderRadius: "8px",
-              overflow: "hidden"
-            }}
-          >
-            {/* Division 1 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "45px",
-                width: "50px",
-                backgroundColor: "#ff6f69",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "15px", fontWeight: "bold", color: "yellow", margin: 0 }}>CCM</h1>
+          {/* CCM */}
+          <div className="d-flex flex-column align-items-center justify-content-center inventory-box">
+            <div className="d-flex flex-column justify-content-center align-items-center inner-container">
+              <div className="label-box"><h1>CCM</h1></div>
+              <div className="data-box"><h1>{TotalCCM}</h1></div>
             </div>
-
-            {/* Division 2 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "green", margin: 0 }}>100</h1>
-            </div>
-
-            {/* Division 3 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "black", margin: 0 }}>60</h1>
-            </div>
-
-            {/* Division 4 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "black", margin: 0 }}>40</h1>
+            <div className="d-flex flex-row justify-content-center align-items-center row-container">
+              <div className="small-box"><h1>{TTCCM}</h1></div>
+              <div className="small-box"><h1>{SSCCM}</h1></div>
             </div>
           </div>
 
-          {/*Bell 100 60 40*/}
-          <div
-            className="d-flex flex-wrap align-items-center justify-content-center"
-            style={{
-              boxShadow: "0 8px 15px rgba(0, 0, 0, 0.2)",
-              height: "130px",
-              width: "130px",
-              backgroundColor: "white",
-              padding: "5px",
-              gap: "5px",
-              borderRadius: "8px",
-              overflow: "hidden"
-            }}
-          >
-            {/* Division 1 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "45px",
-                width: "50px",
-                backgroundColor: "#ff6f69",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "15px", fontWeight: "bold", color: "yellow", margin: 0 }}>Bell</h1>
+          {/* Bell */}
+          <div className="d-flex flex-column align-items-center justify-content-center inventory-box">
+            <div className="d-flex flex-column justify-content-center align-items-center inner-container">
+              <div className="label-box"><h1>Bell</h1></div>
+              <div className="data-box"><h1>{TotalBell}</h1></div>
             </div>
-
-            {/* Division 2 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "green", margin: 0 }}>100</h1>
-            </div>
-
-            {/* Division 3 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "black", margin: 0 }}>60</h1>
-            </div>
-
-            {/* Division 4 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "black", margin: 0 }}>40</h1>
+            <div className="d-flex flex-row justify-content-center align-items-center row-container">
+              <div className="small-box"><h1>{TTBell}</h1></div>
+              <div className="small-box"><h1>{SSBell}</h1></div>
             </div>
           </div>
 
-          {/*Hub 100 60 40*/}
-          <div
-            className="d-flex flex-wrap align-items-center justify-content-center"
-            style={{
-              boxShadow: "0 8px 15px rgba(0, 0, 0, 0.2)",
-              height: "130px",
-              width: "130px",
-              backgroundColor: "white",
-              padding: "5px",
-              gap: "5px",
-              borderRadius: "8px",
-              overflow: "hidden"
-            }}
-          >
-            {/* Division 1 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "45px",
-                width: "50px",
-                backgroundColor: "#ff6f69",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "15px", fontWeight: "bold", color: "yellow", margin: 0 }}>Hub</h1>
+          {/* Hub */}
+          <div className="d-flex flex-column align-items-center justify-content-center inventory-box">
+            <div className="d-flex flex-column justify-content-center align-items-center inner-container">
+              <div className="label-box"><h1>Hub</h1></div>
+              <div className="data-box"><h1>{TotalHub}</h1></div>
             </div>
-
-            {/* Division 2 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "green", margin: 0 }}>100</h1>
-            </div>
-
-            {/* Division 3 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "black", margin: 0 }}>60</h1>
-            </div>
-
-            {/* Division 4 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px"
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "black", margin: 0 }}>40</h1>
+            <div className="d-flex flex-row justify-content-center align-items-center row-container">
+              <div className="small-box"><h1>{TTHub}</h1></div>
+              <div className="small-box"><h1>{SSHub}</h1></div>
             </div>
           </div>
 
-          {/* Remotes 100 60 40 */}
-          <div
-            className="d-flex flex-wrap align-items-center justify-content-center position-relative"
-            style={{
-              boxShadow: "0 8px 15px rgba(0, 0, 0, 0.2)",
-              height: "130px",
-              width: "130px",
-              backgroundColor: "white",
-              padding: "5px",
-              gap: "5px",
-              borderRadius: "8px",
-              position: "relative",
-              overflow: "hidden" // Ensures Division 1 can be absolutely positioned
-            }}
-          >
-            {/* Division 1 */}
-            <div
-              className="d-flex justify-content-center align-items-center position-absolute"
-              style={{
-                height: "50px",
-                width: "50px",
-                backgroundColor: "#ff6f69",
-                borderRadius: "5px",
-                top: "0", // Positions Division 1 at the top of the container
-                left: "0", // Positions Division 1 at the left of the container
-                margin: 0, // Ensures no margin affects positioning
-              }}
-            >
-              <h1 style={{ fontSize: "11px", fontWeight: "bold", color: "yellow", margin: 0 }}>
-                Remotes
-              </h1>
+          {/* Remotes */}
+          <div className="d-flex flex-column align-items-center justify-content-center inventory-box">
+            <div className="d-flex flex-column justify-content-center align-items-center inner-container">
+              <div className="label-box "><h1 style={{ fontSize: "14px" }}>Remotes</h1></div>
+              <div className="data-box"><h1>{TotalRemotes}</h1></div>
             </div>
-
-            {/* Division 2 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "45px",
-                width: "50px",
-                borderRadius: "5px",
-                marginLeft: "50px", // Positions Division 2 at the right of Division 1
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "green", margin: 0 }}>
-                100
-              </h1>
-            </div>
-
-            {/* Division 3 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px",
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "black", margin: 0 }}>
-                60
-              </h1>
-            </div>
-
-            {/* Division 4 */}
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{
-                height: "50px",
-                width: "50px",
-                borderRadius: "5px",
-              }}
-            >
-              <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "black", margin: 0 }}>
-                40
-              </h1>
+            <div className="d-flex flex-row justify-content-center align-items-center row-container">
+              <div className="small-box"><h1>{TTRemotes}</h1></div>
+              <div className="small-box"><h1>{SSRemotes}</h1></div>
             </div>
           </div>
-
 
         </div>
 
         <div
-          className="d-flex flex-row justify-content-around align-items-center"
+          className="d-flex flex-wrap justify-content-around align-items-center"
           style={{
             width: "100%",
-            height: "60px",
+            height: "auto",
             backgroundColor: "transparent",
             marginTop: "40px",
             padding: "10px",
+            gap: "10px"
           }}
         >
           {/* Button 1 */}
           <button
             style={{
               padding: "10px 20px",
-              backgroundColor: "#cc1b18",
+              backgroundColor: "#108b8b",
               border: "none",
               borderRadius: "5px",
               color: "white",
               fontSize: "16px",
               cursor: "pointer",
-              transition: "background-color 0.3s"
+              transition: "background-color 0.3s",
+              flexGrow: "1",
+              margin: "5px",
             }}
-            onMouseOver={(e) => e.target.style.backgroundColor = "#a61b19"}
-            onMouseOut={(e) => e.target.style.backgroundColor = "#cc1b18"}
+            onMouseOver={(e) => e.target.style.backgroundColor = "#0d6666"}
+            onMouseOut={(e) => e.target.style.backgroundColor = "#108b8b"}
             onClick={() => setButton1(true)}
           >
             Add Board to Inventory
@@ -639,8 +347,9 @@ function About() {
                       type="text"
                       name="deviceBarCodeNumber"
                       value={button1Data.deviceBarCodeNumber}
-                      onChange={handleInputChange}
+                      onChange={Button1handleInputChange}
                       style={{ width: "100%", padding: "8px", margin: "5px 0" }}
+                      placeholder="Enter numbers only"
                     />
                   </div>
 
@@ -650,12 +359,16 @@ function About() {
                     <select
                       name="modularType"
                       value={button1Data.modularType}
-                      onChange={handleInputChange}
+                      onChange={Button1handleInputChange}
                       style={{ width: "100%", padding: "8px", margin: "5px 0" }}
                     >
                       <option value="">Select</option>
-                      <option value="Type1">Type1</option>
-                      <option value="Type2">Type2</option>
+                      <option value="12M">12M</option>
+                      <option value="8M">8M</option>
+                      <option value="4M">4M</option>
+                      <option value="2M">2M</option>
+                      <option value="CC">CC</option>
+                      <option value="Bell">Bell</option>
                     </select>
                   </div>
 
@@ -665,12 +378,13 @@ function About() {
                     <select
                       name="color"
                       value={button1Data.color}
-                      onChange={handleInputChange}
+                      onChange={Button1handleInputChange}
                       style={{ width: "100%", padding: "8px", margin: "5px 0" }}
                     >
                       <option value="">Select</option>
-                      <option value="Red">Red</option>
-                      <option value="Blue">Blue</option>
+                      <option value="White">White</option>
+                      <option value="Black">Black</option>
+                      <option value="C.Brown">C.Brown</option>
                     </select>
                   </div>
 
@@ -680,12 +394,12 @@ function About() {
                     <select
                       name="boardType"
                       value={button1Data.boardType}
-                      onChange={handleInputChange}
+                      onChange={Button1handleInputChange}
                       style={{ width: "100%", padding: "8px", margin: "5px 0" }}
                     >
                       <option value="">Select</option>
-                      <option value="TypeA">TypeA</option>
-                      <option value="TypeB">TypeB</option>
+                      <option value="TT">TT</option>
+                      <option value="SS">SS</option>
                     </select>
                   </div>
 
@@ -696,8 +410,9 @@ function About() {
                       type="text"
                       name="batchNo"
                       value={button1Data.batchNo}
-                      onChange={handleInputChange}
+                      onChange={Button1handleInputChange}
                       style={{ width: "100%", padding: "8px", margin: "5px 0" }}
+                      placeholder="Enter numbers only"
                     />
                   </div>
 
@@ -707,12 +422,12 @@ function About() {
                     <select
                       name="xbeeType"
                       value={button1Data.xbeeType}
-                      onChange={handleInputChange}
+                      onChange={Button1handleInputChange}
                       style={{ width: "100%", padding: "8px", margin: "5px 0" }}
                     >
                       <option value="">Select</option>
-                      <option value="Xbee1">Xbee1</option>
-                      <option value="Xbee2">Xbee2</option>
+                      <option value="S3">S3</option>
+                      <option value="S8">S8</option>
                     </select>
                   </div>
 
@@ -722,12 +437,12 @@ function About() {
                     <select
                       name="switchCount"
                       value={button1Data.switchCount}
-                      onChange={handleInputChange}
+                      onChange={Button1handleInputChange}
                       style={{ width: "100%", padding: "8px", margin: "5px 0" }}
                     >
                       <option value="">Select</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
+                      <option value="8S-1F">8S-1F</option>
+                      <option value="5S-1F">5S-1F</option>
                     </select>
                   </div>
 
@@ -737,12 +452,12 @@ function About() {
                     <select
                       name="glassType"
                       value={button1Data.glassType}
-                      onChange={handleInputChange}
+                      onChange={Button1handleInputChange}
                       style={{ width: "100%", padding: "8px", margin: "5px 0" }}
                     >
                       <option value="">Select</option>
-                      <option value="Glass1">Glass1</option>
-                      <option value="Glass2">Glass2</option>
+                      <option value="Full Plain">Full Plain</option>
+                      <option value="Socket Enabled">Socket Enabled</option>
                     </select>
                   </div>
                 </div>
@@ -750,7 +465,7 @@ function About() {
                 {/* Buttons */}
                 <div style={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
                   <button
-                    onClick={handleBack}
+                    onClick={Button1handleBack}
                     style={{
                       padding: "10px 20px",
                       backgroundColor: "orange",
@@ -764,7 +479,7 @@ function About() {
                     Back
                   </button>
                   <button
-                    onClick={handleSubmit}
+                    onClick={Button1handleSubmit}
                     style={{
                       padding: "10px 20px",
                       backgroundColor: "#28a745",
@@ -785,56 +500,409 @@ function About() {
           <button
             style={{
               padding: "10px 20px",
-              backgroundColor: "#cc1b18",
+              backgroundColor: "#108b8b",
               border: "none",
               borderRadius: "5px",
               color: "white",
               fontSize: "16px",
               cursor: "pointer",
-              transition: "background-color 0.3s"
+              transition: "background-color 0.3s",
+              flexGrow: "1",
+              margin: "5px",
             }}
-            onMouseOver={(e) => e.target.style.backgroundColor = "#a61b19"}
-            onMouseOut={(e) => e.target.style.backgroundColor = "#cc1b18"}
+            onMouseOver={(e) => e.target.style.backgroundColor = "#0d6666"}
+            onMouseOut={(e) => e.target.style.backgroundColor = "#108b8b"}
+            onClick={() => setButton2(true)}
           >
             Add HUB to Inventory
           </button>
+
+          {/* Popup */}
+          {button2 && (
+            <div
+              style={{
+                position: "fixed",
+                top: "0",
+                left: "0",
+                width: "100%",
+                height: "100%",
+                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
+              <div
+                style={{
+                  backgroundColor: "white",
+                  padding: "20px",
+                  borderRadius: "10px",
+                  width: "500px",
+                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)"
+                }}
+              >
+                <h2 style={{ color: "#0e94b3", textAlign: "center", marginBottom: "20px" }}>
+                  Add HUB to Inventory
+                </h2>
+
+                {/* Form Fields */}
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr",
+                    gap: "15px"
+                  }}
+                >
+                  {/* Device_BarCode_Number */}
+                  <div>
+                    <label>Device_BarCode_Number</label>
+                    <input
+                      type="text"
+                      name="deviceBarCodeNumber"
+                      value={button2Data.deviceBarCodeNumber}
+                      onChange={Button2handleInputChange}
+                      style={{ width: "100%", padding: "8px", margin: "5px 0" }}
+                      placeholder="Enter numbers only"
+                    />
+                  </div>
+
+                  {/* Batch No */}
+                  <div>
+                    <label>Batch No</label>
+                    <input
+                      type="text"
+                      name="batchNo"
+                      value={button2Data.batchNo}
+                      onChange={Button2handleInputChange}
+                      style={{ width: "100%", padding: "8px", margin: "5px 0" }}
+                      placeholder="Enter numbers only"
+                    />
+                  </div>
+
+                  {/* Xbee Type */}
+                  <div>
+                    <label>Xbee Type</label>
+                    <select
+                      name="xbeeType"
+                      value={button2Data.xbeeType}
+                      onChange={Button2handleInputChange}
+                      style={{ width: "100%", padding: "8px", margin: "5px 0" }}
+                    >
+                      <option value="">Select</option>
+                      <option value="S3">S3</option>
+                      <option value="S8">S8</option>
+                    </select>
+                  </div>
+
+                  {/* Hardware Version */}
+                  <div>
+                    <label>Hardware Version</label>
+                    <select
+                      name="hardwareversion"
+                      value={button2Data.hardwareversion}
+                      onChange={Button2handleInputChange}
+                      style={{ width: "100%", padding: "8px", margin: "5px 0" }}
+                    >
+                      <option value="">Select</option>
+                      <option value="HW1.0">HW1.0</option>
+                      <option value="HW2.0">HW2.0</option>
+                    </select>
+                  </div>
+
+                  {/* Firmware Version */}
+                  <div>
+                    <label>Firmware Version</label>
+                    <select
+                      name="firmwareVersion"
+                      value={button2Data.firmwareVersion}
+                      onChange={Button2handleInputChange}
+                      style={{ width: "100%", padding: "8px", margin: "5px 0" }}
+                    >
+                      <option value="">Select</option>
+                      <option value="FW1.0">FW1.0</option>
+                      <option value="FW2.0">FW2.0</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Buttons */}
+                <div style={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
+                  <button
+                    onClick={Button2handleBack}
+                    style={{
+                      padding: "10px 20px",
+                      backgroundColor: "orange",
+                      border: "none",
+                      borderRadius: "5px",
+                      fontWeight: "bold",
+                      color: "white",
+                      cursor: "pointer"
+                    }}
+                  >
+                    Back
+                  </button>
+                  <button
+                    onClick={Button2handleSubmit}
+                    style={{
+                      padding: "10px 20px",
+                      backgroundColor: "#28a745",
+                      border: "none",
+                      borderRadius: "5px",
+                      color: "white",
+                      cursor: "pointer"
+                    }}
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+
+
 
           {/* Button 3 */}
           <button
             style={{
               padding: "10px 20px",
-              backgroundColor: "#cc1b18",
+              backgroundColor: "#108b8b",
               border: "none",
               borderRadius: "5px",
               color: "white",
               fontSize: "16px",
               cursor: "pointer",
-              transition: "background-color 0.3s"
+              transition: "background-color 0.3s",
+              flexGrow: "1",
+              margin: "5px",
             }}
-            onMouseOver={(e) => e.target.style.backgroundColor = "#a61b19"}
-            onMouseOut={(e) => e.target.style.backgroundColor = "#cc1b18"}
+            onMouseOver={(e) => e.target.style.backgroundColor = "#0d6666"}
+            onMouseOut={(e) => e.target.style.backgroundColor = "#108b8b"}
+            onClick={() => setButton3(true)}
           >
             Add Remote to Inventory
           </button>
+
+          {/* Popup for Button3 */}
+          {button3 && (
+            <div
+              style={{
+                position: "fixed",
+                top: "0",
+                left: "0",
+                width: "100%",
+                height: "100%",
+                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
+              <div
+                style={{
+                  backgroundColor: "white",
+                  padding: "20px",
+                  borderRadius: "10px",
+                  width: "500px",
+                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)"
+                }}
+              >
+                <h2 style={{ color: "#0e94b3", textAlign: "center", marginBottom: "20px" }}>
+                  Add Remote Details
+                </h2>
+
+                {/* Form Fields */}
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr",
+                    gap: "15px"
+                  }}
+                >
+                  {/* Batch No */}
+                  <div>
+                    <label>Batch No</label>
+                    <input
+                      type="text"
+                      name="batchNo"
+                      value={button3Data.batchNo}
+                      onChange={Button3handleInputChange}
+                      style={{ width: "100%", padding: "8px", margin: "5px 0" }}
+                      placeholder="Enter numbers only"
+                    />
+                  </div>
+
+                  {/* Remote Count */}
+                  <div>
+                    <label>Remote Count</label>
+                    <input
+                      type="text"
+                      name="remotecount"
+                      value={button3Data.remotecount}
+                      onChange={(e) => {
+                        const value = e.target.value;
+                        if (/^\d*$/.test(value)) {
+                          Button3handleInputChange(e);
+                        }
+                      }}
+                      style={{ width: "100%", padding: "8px", margin: "5px 0" }}
+                      placeholder="Enter numbers only"
+                    />
+                  </div>
+
+                  {/* Remote Type */}
+                  <div>
+                    <label>Remote Type</label>
+                    <select
+                      name="remotetype"
+                      value={button3Data.remotetype}
+                      onChange={Button3handleInputChange}
+                      style={{ width: "100%", padding: "8px", margin: "5px 0" }}
+                    >
+                      <option value="">Select</option>
+                      <option value="Type1">Type1</option>
+                      <option value="Type2">Type2</option>
+                    </select>
+                  </div>
+
+                  {/* Model Type */}
+                  <div>
+                    <label>Model Type</label>
+                    <select
+                      name="modeltype"
+                      value={button3Data.modeltype}
+                      onChange={Button3handleInputChange}
+                      style={{ width: "100%", padding: "8px", margin: "5px 0" }}
+                    >
+                      <option value="">Select</option>
+                      <option value="ModelA">ModelA</option>
+                      <option value="ModelB">ModelB</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Buttons */}
+                <div style={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
+                  <button
+                    onClick={Button3handleBack}
+                    style={{
+                      padding: "10px 20px",
+                      backgroundColor: "orange",
+                      border: "none",
+                      borderRadius: "5px",
+                      fontWeight: "bold",
+                      color: "white",
+                      cursor: "pointer"
+                    }}
+                  >
+                    Back
+                  </button>
+                  <button
+                    onClick={Button3handleSubmit}
+                    style={{
+                      padding: "10px 20px",
+                      backgroundColor: "#28a745",
+                      border: "none",
+                      borderRadius: "5px",
+                      color: "white",
+                      cursor: "pointer"
+                    }}
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+
 
           {/* Button 4 */}
           <button
             style={{
               padding: "10px 20px",
-              backgroundColor: "#cc1b18",
+              backgroundColor: "#108b8b",
               border: "none",
               borderRadius: "5px",
               color: "white",
               fontSize: "16px",
               cursor: "pointer",
-              transition: "background-color 0.3s"
+              transition: "background-color 0.3s",
+              flexGrow: "1",
+              margin: "5px",
             }}
-            onMouseOver={(e) => e.target.style.backgroundColor = "#a61b19"}
-            onMouseOut={(e) => e.target.style.backgroundColor = "#cc1b18"}
+            onMouseOver={(e) => e.target.style.backgroundColor = "#0d6666"}
+            onMouseOut={(e) => e.target.style.backgroundColor = "#108b8b"}
           >
             Add other items to Inventory
           </button>
 
+        </div>
+
+        <div className="container-fluid mt-4">
+          {/* Search Section */}
+          <div className="row mb-4 align-items-center">
+            <div className="col-12 col-md-8 d-flex">
+              <div className="flex-grow-1 me-2" style={{ flexBasis: '60%' }}>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Search"
+                  value={searchTerm}
+                  onChange={handleSearch}
+                  style={{
+                    backgroundColor: '#dee2e6',}}
+                />
+              </div>
+              <div style={{ flexBasis: '20%' }}>
+                <button className="btn btn-secondary w-100">Filter</button>
+              </div>
+            </div>
+          </div>
+
+          
+
+          {/* Table Section */}
+          <div className="table-responsive">
+            <table className="table table-bordered table-hover text-center">
+              <thead>
+                <tr>
+                  <th>Device BarCode Number</th>
+                  <th>Modular Type</th>
+                  <th>Color</th>
+                  <th>Board Type</th>
+                  <th>Batch No</th>
+                  <th>Xbee Type</th>
+                  <th>Switch Count</th>
+                  <th>Glass Type</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredData.map((item, index) => (
+                  <tr key={index}>
+                    <td className="text-truncate" style={{ maxWidth: '150px' }}>
+                      {item.deviceBarCode}
+                    </td>
+                    <td>{item.modularType}</td>
+                    <td>{item.color}</td>
+                    <td>{item.boardType}</td>
+                    <td>{item.batchNo}</td>
+                    <td>{item.xbeeType}</td>
+                    <td>{item.switchCount}</td>
+                    <td>{item.glassType}</td>
+                    <td>
+                      <div className="d-flex justify-content-center align-items-center flex-wrap">
+                        <button className="btn btn-primary btn-sm me-2 mb-1">Edit</button>
+                        <button className="btn btn-danger btn-sm me-2 mb-1">Delete</button>
+                        <button className="btn btn-success btn-sm mb-1">Submit</button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
 
